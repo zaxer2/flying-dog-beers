@@ -42,8 +42,8 @@ choleraDeathForLine["Total Deaths"] = sumDeaths
 
 choleraTable = dt.DataTable(
     id='choleratable',
-    columns=[{"name": "Date", "id": "Date"}, {"name": "Attacks", "id": "Attack"}, {"name": "Deaths", "id": "Death"}, {"name": "Total", "id": "Total"}],
-    data=choleraDeaths.to_dict('Records')
+    columns=[{"name": "Date", "id": "Date"}, {"name": "Attacks", "id": "Attack"}, {"name": "Deaths", "id": "Death"}, {"name": "Total Attacks", "id": "Total Attacks"}, {"name": "Total Deaths", "id": "Total Deaths"}],
+    data=choleraDeathForLine.to_dict('Records')
 )
 
 choleraLineFig = go.Figure()
@@ -103,14 +103,14 @@ app.layout = html.Div(children=[
     html.H1(children='1854 London Cholera Outbreak'),
 
     html.Div(children='''
-        The below table shows the number of cholera attacks & deaths on each day from the 19th of August to the 29th of September, 1854.
+        The below table and graph show the number of cholera attacks & deaths, and their totals, on each day from the 19th of August to the 29th of September, 1854.
+        This time period is known as the 1854 London Cholera Outbreak.
     '''),
 
 
     html.Div(children=choleraTable, style={'marginBottom': 50, 'marginTop': 25, 'width': 500}),
 
     html.Div(children='''
-    The below graph shows the number of daily cholera attacks & deaths, as well as the total attacks & deaths up to that point, on a day-by-day basis.
 '''),
     dcc.Graph(
         id='cholera-graph',
@@ -118,6 +118,9 @@ app.layout = html.Div(children=[
     ),
 
     html.Div(children='''
+    Cholera attacks spiked quickly around the beginning of September, 1854
+    
+    
     The below table and the following two graphs show the number of deaths per 10,000 inhabitants of Naples, separated by age group and gender.
 '''),
     html.Div(children=naplesTable, style={'marginBottom': 50, 'marginTop': 25, 'width': 500}),
@@ -130,6 +133,9 @@ app.layout = html.Div(children=[
         figure=naplesFemaleFigure
     ),
     html.Div(children='''
+    The elderly were killed by this cholera outbreak at a much higher rate than others, and it affected women just as much as men.
+    
+    
     The below table, and the following 4 graphs, show the breakdown of population by age range in the UK, at around the same time period.
 '''),
     html.Div(children=ukTable, style={'marginBottom': 50, 'marginTop': 25, 'width': 500}),
@@ -163,6 +169,14 @@ app.layout = html.Div(children=[
         id='uk-map',
         figure=deathsFig
     ),
+    html.Div(children='''
+    The mapping of this data led to the conclusion that the water pump on Broad Street was the source of this cholera outbreak.
+    
+    
+    This project was written by William Cole in the Python language using the Dash framework with Pandas and Plot.ly to parse and visualize data.
+    
+    The data was assembled by professor Jason Leigh and sources from The New England Journal of Medicine, and the UK Census of 1851.
+'''),
 ])
 
 if __name__ == '__main__':
