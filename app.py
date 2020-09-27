@@ -45,7 +45,7 @@ choleraTable = dt.DataTable(
     data=choleraDeaths.to_dict('Records')
 )
 
-choleraLineFig = px.line()
+choleraLineFig = go.Figure()
 choleraLineFig.add_scatter(x=choleraDeathForLine["Date"], y=choleraDeathForLine["Attack"], name="Attacks", line=dict(color="#ffa600"))
 choleraLineFig.add_scatter(x=choleraDeathForLine["Date"], y=choleraDeathForLine["Death"], name="Deaths", line=dict(color="#0388fc"))
 choleraLineFig.add_scatter(x=choleraDeathForLine["Date"], y=choleraDeathForLine["Total Attacks"], name="Total Attacks", line=dict(color="#ef5675"))
