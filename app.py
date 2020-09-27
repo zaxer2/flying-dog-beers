@@ -15,6 +15,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', "https://u
 external_scripts = ["https://unpkg.com/leaflet@1.7.1/dist/leaflet.js", "./mapcode.js"]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, external_scripts=external_scripts)
+server = app.server
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
